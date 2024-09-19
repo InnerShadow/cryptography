@@ -53,8 +53,9 @@ class CryptographySystem(ABC):
     def _check_key(self):
         raise NotImplementedError()
 
+    @abstractmethod
     def _preprocess_key(self) -> None:
-        self.key = self.alphabet.index(self.key)
+        raise NotImplementedError()
     # end def
 
     @abstractmethod
@@ -82,4 +83,6 @@ class CryptographySystem(ABC):
     def _write_ouput(self, data : str):
         with open(self.output_path, 'w') as f:
             f.write(data)
+        # end with
+    # end def
 # end class

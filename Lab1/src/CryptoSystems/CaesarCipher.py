@@ -15,4 +15,8 @@ class CaesarCipher(CryptographySystem):
     def _decrypt_single_character(self, symbol : str) -> str:
         return self.alphabet[(self.alphabet.index(symbol) - self.key) % self.M]
     # end def
+
+    def _preprocess_key(self) -> None:
+        self.key = self.alphabet.index(self.key)
+    # end def
 # end class
