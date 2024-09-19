@@ -24,17 +24,17 @@ class CryptographySystem(ABC):
         self.encrypt_function = encrypt_map[do_encrypt]
         
         with open(alphabet_path, 'r') as f:
-            self.alphabet = f.readline().strip()
+            self.alphabet = f.readline()
         # end with
 
         self.M = len(self.alphabet)
 
         with open(input_path, 'r') as f:
-            self.input_str = f.readline().strip()
+            self.input_str = f.readline()
         # end with
         
         with open(key_path, 'r') as f:
-            self.key = f.readline().strip()
+            self.key = f.readline()
         # end with
 
         if not set(self.input_str).issubset(set(self.alphabet)):
