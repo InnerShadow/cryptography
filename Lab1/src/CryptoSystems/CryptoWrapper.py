@@ -1,6 +1,7 @@
 
 from CryptoSystems.CaesarCipher import CaesarCipher
 from CryptoSystems.AffineCipher import AffineCipher
+from CryptoSystems.ReplaceCipher import ReplaceCipher
 
 class CryptoWrapper(object):
     def __init__(self,
@@ -21,6 +22,13 @@ class CryptoWrapper(object):
             # end case
             case 'Affine':
                 self.crypter = AffineCipher(alphabet_path = alphabet_path,
+                                            input_path = input_path,
+                                            key_path = key_path,
+                                            do_encrypt = do_encrypt,
+                                            output_path = output_path)
+            # end case
+            case 'Replace':
+                self.crypter = ReplaceCipher(alphabet_path = alphabet_path,
                                             input_path = input_path,
                                             key_path = key_path,
                                             do_encrypt = do_encrypt,

@@ -29,4 +29,17 @@ class CryptoTest(TestCase):
                                      do_encrypt = 'dec').encrypt()
         self.assertEqual(decript_data, encript_data)
     # end def
+
+    def test_Replace(self):
+        crypter = CryptoWrapper(method = 'Replace',
+                                key_path = './Data/key_Replace.txt' ,
+                                do_encrypt = 'enc')
+        crypter.encrypt()
+        decript_data = crypter.crypter.input_str
+        encript_data = CryptoWrapper(method = 'Replace', 
+                                     key_path = './Data/key_Replace.txt',
+                                     input_path = './Data/crypt.txt',
+                                     do_encrypt = 'dec').encrypt()
+        self.assertEqual(decript_data, encript_data)
+    # end def
 # end class
