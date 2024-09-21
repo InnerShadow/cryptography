@@ -11,8 +11,8 @@ class CryptoWrapper(object):
                  method : str,
                  key_path : str,
                  do_encrypt : str,
-                 alphabet_path : str = './Data/alphabet.txt',
-                 input_path : str = './Data/in.txt',
+                 alphabet_path : str = './Data/alphabet',
+                 input_path : str = './Data/in',
                  output_path : str = None) -> None:
         
         common_args = {
