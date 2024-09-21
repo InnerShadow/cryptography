@@ -7,13 +7,11 @@ class CryptoTest(TestCase):
     def test_Caesar(self):
         crypter = CryptoWrapper(method = 'Caesar',
                                 key_path = './Data/key_Cipher' ,
-                                do_encrypt = 'enc')
+                                do_encrypt = 'enc').encrypt()
 
         with open('./Data/in', 'r') as f:
             decript_data = f.readline()
         # end with
-
-        crypter.encrypt()
 
         encript_data = CryptoWrapper(method = 'Caesar', 
                                      key_path = './Data/key_Cipher',
@@ -25,13 +23,11 @@ class CryptoTest(TestCase):
     def test_Affine(self):
         crypter = CryptoWrapper(method = 'Affine',
                                 key_path = './Data/key_Affine' ,
-                                do_encrypt = 'enc')
+                                do_encrypt = 'enc').encrypt()
 
         with open('./Data/in', 'r') as f:
             decript_data = f.readline()
         # end with
-
-        crypter.encrypt()
 
         encript_data = CryptoWrapper(method = 'Affine', 
                                      key_path = './Data/key_Affine',
@@ -43,13 +39,11 @@ class CryptoTest(TestCase):
     def test_Replace(self):
         crypter = CryptoWrapper(method = 'Replace',
                                 key_path = './Data/key_Replace' ,
-                                do_encrypt = 'enc')
+                                do_encrypt = 'enc').encrypt()
         
         with open('./Data/in', 'r') as f:
             decript_data = f.readline()
         # end with
-
-        crypter.encrypt()
 
         encript_data = CryptoWrapper(method = 'Replace', 
                                      key_path = './Data/key_Replace',
@@ -61,13 +55,11 @@ class CryptoTest(TestCase):
     def test_Hill(self):
         crypter = CryptoWrapper(method = 'Hill',
                                 key_path = './Data/key_Hill' ,
-                                do_encrypt = 'enc')
+                                do_encrypt = 'enc').encrypt()
         
         with open('./Data/in', 'r') as f:
             decript_data = f.readline()
         # end with
-
-        crypter.encrypt()
 
         encript_data = CryptoWrapper(method = 'Hill', 
                                      key_path = './Data/key_Hill',
@@ -79,13 +71,11 @@ class CryptoTest(TestCase):
     def test_Permutation(self):
         crypter = CryptoWrapper(method = 'Permutation',
                                 key_path = './Data/key_Permutation' ,
-                                do_encrypt = 'enc')
+                                do_encrypt = 'enc').encrypt()
 
         with open('./Data/in', 'r') as f:
             decript_data = f.readline()
         # end with
-
-        crypter.encrypt()
 
         encript_data = CryptoWrapper(method = 'Permutation', 
                                      key_path = './Data/key_Permutation',
@@ -97,13 +87,11 @@ class CryptoTest(TestCase):
     def test_Vigenere(self):
         crypter = CryptoWrapper(method = 'Vigenere',
                                 key_path = './Data/key_Vigenere' ,
-                                do_encrypt = 'enc')
+                                do_encrypt = 'enc').encrypt()
         
         with open('./Data/in', 'r') as f:
             decript_data = f.readline()
         # end with
-
-        crypter.encrypt()
 
         encript_data = CryptoWrapper(method = 'Vigenere', 
                                      key_path = './Data/key_Vigenere',
