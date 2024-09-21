@@ -1,10 +1,8 @@
 from CryptoSystems.CryptographySystem import CryptographySystem
 
-class PermutationCipher(CryptographySystem):
+class VigenereCipher(CryptographySystem):
     def _check_key(self) -> None:
-        if len(set(self.key)) != len(self.key) or len(self.key) > self.M:
-            raise ValueError('Bad key.')
-        # end if
+        pass
     # end def
 
     def _preprocess_key(self) -> None:
@@ -24,14 +22,7 @@ class PermutationCipher(CryptographySystem):
     # end def
 
     def encrypt(self) -> str:
-        num_padded_chars = 0
-        while len(self.input_str) % len(self.key) != 0:
-            num_padded_chars += 1
-            self.input_str += self.alphabet[-1]
-        # end while
-
         res = ''.join(self.encrypt_function(char, i) for i, char in enumerate(self.input_str))
-        res = res if not num_padded_chars else res[:-num_padded_chars]
         
         self._write_output(res)
         return res
