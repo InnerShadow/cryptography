@@ -6,7 +6,7 @@ from CryptoSystems.CryptoWrapper import CryptoWrapper
 class CryptoTest(TestCase):
     def test_Caesar(self):
         crypter = CryptoWrapper(method = 'Caesar',
-                                key_path = './Data/key_Cipher' ,
+                                key_path = './Data/key_Caesar' ,
                                 do_encrypt = 'enc').encrypt()
 
         with open('./Data/in', 'r') as f:
@@ -14,7 +14,7 @@ class CryptoTest(TestCase):
         # end with
 
         encript_data = CryptoWrapper(method = 'Caesar', 
-                                     key_path = './Data/key_Cipher',
+                                     key_path = './Data/key_Caesar',
                                      input_path = './Data/crypt',
                                      do_encrypt = 'dec').encrypt()
         self.assertEqual(decript_data, encript_data)
