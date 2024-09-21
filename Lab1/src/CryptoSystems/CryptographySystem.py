@@ -1,5 +1,6 @@
 
 from abc import ABC, abstractmethod
+from typing import Callable
 
 class CryptographySystem(ABC):
     def __init__(self, 
@@ -14,27 +15,27 @@ class CryptographySystem(ABC):
             'dec' : './Data/decrypt.txt'
         }
         
-        self.output_path = ouput_map[do_encrypt] if not output_path else output_path
+        self.output_path : str = ouput_map[do_encrypt] if not output_path else output_path
         
-        encrypt_map = {
+        encrypt_map : dict = {
             'enc' : self._encrypt_single_character,
             'dec' : self._decrypt_single_character
         }
         
-        self.encrypt_function = encrypt_map[do_encrypt]
+        self.encrypt_function : Callable = encrypt_map[do_encrypt]
         
         with open(alphabet_path, 'r') as f:
-            self.alphabet = f.readline()
+            self.alphabet : str = f.readline()
         # end with
 
-        self.M = len(self.alphabet)
+        self.M : int = len(self.alphabet)
 
         with open(input_path, 'r') as f:
-            self.input_str = f.readline()
+            self.input_str : str = f.readline()
         # end with
         
         with open(key_path, 'r') as f:
-            self.key = f.readline()
+            self.key : str = f.readline()
         # end with
 
         if not set(self.input_str).issubset(set(self.alphabet)):
@@ -75,12 +76,12 @@ class CryptographySystem(ABC):
             res += self.encrypt_function(i)
         # end for
 
-        self._write_ouput(res)
+        self._write_output(res)
 
         return res
     # end def
 
-    def _write_ouput(self, data : str):
+    def _write_output(self, data : str):
         with open(self.output_path, 'w') as f:
             f.write(data)
         # end with
