@@ -11,8 +11,8 @@ class CryptographySystem(ABC):
                  output_path : str = None) -> None:
         
         ouput_map = {
-            'enc' : './Data/crypt.txt',
-            'dec' : './Data/decrypt.txt'
+            'enc' : './Data/crypt',
+            'dec' : './Data/decrypt'
         }
         
         self.output_path : str = ouput_map[do_encrypt] if not output_path else output_path

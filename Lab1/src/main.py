@@ -7,15 +7,15 @@ def main():
     parser.add_argument('method', type = str, help = "(Caesar, Affine, Replace, Hill, Permutation, Vigenere)")
     parser.add_argument('do_encrypt', type = str, choices = ['enc', 'dec'])
 
-    parser.add_argument('--alphabet_path', type = str, default = './Data/alphabet.txt')
-    parser.add_argument('--input_path', type = str, default = './Data/in.txt')
+    parser.add_argument('--alphabet_path', type = str, default = './Data/alphabet')
+    parser.add_argument('--input_path', type = str, default = './Data/in')
     parser.add_argument('--key_path', type = str)
     parser.add_argument('--output_path', type = str)
     
     args = parser.parse_args()
 
     if args.key_path is None:
-        args.key_path = f'./Data/key_{args.method}.txt'
+        args.key_path = f'./Data/key_{args.method}'
     # end if 
 
     crypto = CryptoWrapper(
