@@ -44,7 +44,7 @@ class PermutationCipher(CryptographySystem):
             res += self.encrypt_function(self.input_str[i:i+len(self.key)])
         # end for
 
-        res = res if not num_padded_chars else res[:-num_padded_chars]
+        # res = res if not num_padded_chars else res[:-num_padded_chars]
         
         self._write_output(res)
         return res

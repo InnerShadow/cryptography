@@ -69,7 +69,7 @@ class HillCipher(CryptographySystem):
             res += self.encrypt_function(self.input_str[i:i+MATRIX_SHAPE])
         # end for
 
-        res = res if not self._do_add_enc_character else res[:-1]
+        # res = res if not self._do_add_enc_character else res[:-1]
 
         self._write_output(res)
 
