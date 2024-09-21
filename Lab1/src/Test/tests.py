@@ -71,4 +71,21 @@ class CryptoTest(TestCase):
                                      do_encrypt = 'dec').encrypt()
         self.assertEqual(decript_data, encript_data)
     # end def
+
+    def test_Permutation(self):
+        crypter = CryptoWrapper(method = 'Permutation',
+                                key_path = './Data/key_Permutation.txt' ,
+                                do_encrypt = 'enc')
+        crypter.encrypt()
+        
+        with open('./Data/in.txt', 'r') as f:
+            decript_data = f.readline()
+        # end with
+
+        encript_data = CryptoWrapper(method = 'Permutation', 
+                                     key_path = './Data/key_Permutation.txt',
+                                     input_path = './Data/crypt.txt',
+                                     do_encrypt = 'dec').encrypt()
+        self.assertEqual(decript_data, encript_data)
+    # end def
 # end class

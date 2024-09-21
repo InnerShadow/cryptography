@@ -3,6 +3,7 @@ from CryptoSystems.CaesarCipher import CaesarCipher
 from CryptoSystems.AffineCipher import AffineCipher
 from CryptoSystems.ReplaceCipher import ReplaceCipher
 from CryptoSystems.HillChipher import HillCipher
+from CryptoSystems.PermutationCipher import PermutationCipher
 
 class CryptoWrapper(object):
     def __init__(self,
@@ -37,6 +38,13 @@ class CryptoWrapper(object):
             # end case
             case 'Hill':
                 self.crypter = HillCipher(alphabet_path = alphabet_path,
+                                            input_path = input_path,
+                                            key_path = key_path,
+                                            do_encrypt = do_encrypt,
+                                            output_path = output_path)
+            # end case
+            case 'Permutation':
+                self.crypter = PermutationCipher(alphabet_path = alphabet_path,
                                             input_path = input_path,
                                             key_path = key_path,
                                             do_encrypt = do_encrypt,

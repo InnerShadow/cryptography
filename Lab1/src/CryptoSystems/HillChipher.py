@@ -23,7 +23,7 @@ class HillCipher(CryptographySystem):
         self._do_add_enc_character = False
         
         if len(self.input_str) % MATRIX_SHAPE != 0:
-            self.input_str += 'П'
+            self.input_str += self.alphabet[-1]
             self._do_add_enc_character = True
         # end if
     # end def

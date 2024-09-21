@@ -70,11 +70,7 @@ class CryptographySystem(ABC):
     # end def
 
     def encrypt(self) -> str:
-        res = ''
-
-        for i in self.input_str:
-            res += self.encrypt_function(i)
-        # end for
+        res = ''.join(self.encrypt_function(char) for char in self.input_str)
 
         self._write_output(res)
 
