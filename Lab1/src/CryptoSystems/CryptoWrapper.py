@@ -46,6 +46,6 @@ class CryptoWrapper(object):
     # end def 
 
     def encrypt(self) -> str:
-        return self.crypter.encrypt()
+        return self.crypter.encrypt().strip()
     # end def
 # end class

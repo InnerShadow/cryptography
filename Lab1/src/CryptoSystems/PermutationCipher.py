@@ -1,3 +1,4 @@
+
 from CryptoSystems.CryptographySystem import CryptographySystem
 
 MAX_TMP_FILL = 35
@@ -11,24 +12,25 @@ class PermutationCipher(CryptographySystem):
 
     def _preprocess_key(self) -> None:
         key_indices = [self.alphabet.index(k) for k in self.key]
+        
         self.key_indices = [MAX_TMP_FILL] * len(self.key)
         for i in range(len(self.key)):
             self.key_indices[key_indices.index(min(key_indices))] = i
             key_indices[key_indices.index(min(key_indices))] = MAX_TMP_FILL
         # end for
+
+        self.inverse_key_indices = [0] * len(self.key_indices)
+        for i, idx in enumerate(self.key_indices):
+            self.inverse_key_indices[idx] = i
+        # end for
     # end def
 
     def _encrypt_single_character(self, symbol : str) -> str:
-        outout_str = ''
-        for i in self.key_indices:
-            outout_str += symbol[i]
-        # end for
-
-        return outout_str
+        return ''.join(symbol[i] for i in self.key_indices)
     # end def
 
     def _decrypt_single_character(self, symbol: str) -> str:
-        return self._encrypt_single_character(symbol)
+        return ''.join(symbol[i] for i in self.inverse_key_indices)
     # end def
 
     def encrypt(self) -> str:

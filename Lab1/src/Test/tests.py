@@ -91,7 +91,7 @@ class CryptoTest(TestCase):
                                      key_path = './Data/key_Permutation.txt',
                                      input_path = './Data/crypt.txt',
                                      do_encrypt = 'dec').encrypt()
-        self.assertEqual(decript_data, encript_data[:-2])
+        self.assertEqual(decript_data, encript_data)
     # end def
 
     def test_Vigenere(self):
